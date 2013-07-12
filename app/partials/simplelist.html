@@ -1,0 +1,9 @@
+<h2 ng-show="areSorted">Congratulations!</h2>
+
+<ul class="thumbnails" ui-sortable="sortableOptions" ng-model="shuffled">
+    <li class="span3 tile tile-teal" ng-repeat="item in shuffled">
+        <a href="#" >
+            <h3>{{item.name}}<br/> {{$index + 1}}</h3>
+        </a>
+    </li>
+</ul>
