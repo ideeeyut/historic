@@ -8,11 +8,7 @@ angular.module('myApp.controllers', [])
         $scope.category = $routeParams.category;
         $scope.areSorted = false;
 
-        if($scope.category == "random") {
-
-        }
-
-        $http.get('data/' + $scope.category + '.json')
+        $http.get('data/' + $scope.category)
             .success(function(data) {
                 $scope.sorted = data;
                 $scope.shuffled = $filter('shuffle')($scope.sorted);
@@ -38,13 +34,25 @@ angular.module('myApp.controllers', [])
 
             }
         };
+
+        $scope.rating = 5;
+        $scope.saveRatingToServer = function(rating) {
+            console.log('Rating selected = ' + rating);
+        }
     }])
     .controller('HomeCtrl', ['$scope', '$filter', function($scope, $filter) {
     }])
-    .controller('IndexCtrl', ['$scope', '$filter', function($scope, $filter) {
-        $scope.easy = ['Alphabet', 'Numbers', 'Planets'];
-        $scope.medium = ['Presidents', 'Wars'];
-        $scope.hard = ['World War II', 'Periodic Table'];
+    .controller('IndexCtrl', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
+        $scope.displayAlert = false;
+        $http.get('data/categories.json')
+            .success(function(data) {
+                $scope.categories = data;
+                $scope.random = data[Math.floor(Math.random()*data.length)];
+            })
+            .error(function(data, status) {
+                console.log(data);
+                console.log(status);
+            });
     }])
     .controller('EasyCategoriesCtrl', ['$scope', '$filter', function($scope, $filter) {
         $scope.categories = ['Alphabet', 'Numbers', 'Planets'];

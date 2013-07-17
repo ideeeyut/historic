@@ -1,10 +1,10 @@
 [
-    { "name" : "Mercury" },
-    { "name" : "Venus" },
-    { "name" : "Earth" },
-    { "name" : "Mars" },
-    { "name" : "Jupiter" },
-    { "name" : "Saturn" },
-    { "name" : "Neptune" },
-    { "name" : "Uranus" }
+    { "name" : "Mercury", "url" : "http://en.wikipedia.org/wiki/Mercury_(planet)" },
+    { "name" : "Venus", "url" : "http://en.wikipedia.org/wiki/Venus" },
+    { "name" : "Earth", "url" : "http://en.wikipedia.org/wiki/Earth" },
+    { "name" : "Mars", "url" : "http://en.wikipedia.org/wiki/Mars" },
+    { "name" : "Jupiter", "url" : "http://en.wikipedia.org/wiki/Jupiter" },
+    { "name" : "Saturn", "url" : "http://en.wikipedia.org/wiki/Saturn" },
+    { "name" : "Neptune", "url" : "http://en.wikipedia.org/wiki/Neptune" },
+    { "name" : "Uranus", "url" : "http://en.wikipedia.org/wiki/Uranus" }
 ]
