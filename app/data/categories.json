@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Planets",
+        "level":"easy",
+        "data":"planets.json"
+    },
+    {
+        "name": "Alphabet",
+        "level":"easy",
+        "data":"alphabet.json"
+    },
+    {
+        "name": "Numbers",
+        "level":"easy",
+        "data":"numbers.json"
+    },
+    {
+        "name": "Presidents",
+        "level":"medium",
+        "data":"presidents.json"
+    },
+    {
+        "name": "Wars",
+        "level":"medium",
+        "data":"wars.json"
+    },
+    {
+        "name": "Periodic Table",
+        "level":"hard",
+        "data":"periodic_table.json"
+    },
+    {
+        "name": "World War 2",
+        "level":"hard",
+        "data":"world_war_2.json"
+    }
+]
