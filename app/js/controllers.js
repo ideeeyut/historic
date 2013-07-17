@@ -8,7 +8,7 @@ angular.module('myApp.controllers', [])
         $scope.category = $routeParams.category;
         $scope.areSorted = false;
 
-        $http.get('data/' + $scope.category)
+        $http.get('app/data/' + $scope.category)
             .success(function(data) {
                 $scope.sorted = data;
                 $scope.shuffled = $filter('shuffle')($scope.sorted);
@@ -44,7 +44,7 @@ angular.module('myApp.controllers', [])
     }])
     .controller('IndexCtrl', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
         $scope.displayAlert = false;
-        $http.get('data/categories.json')
+        $http.get('app/data/categories.json')
             .success(function(data) {
                 $scope.categories = data;
                 $scope.random = data[Math.floor(Math.random()*data.length)];
