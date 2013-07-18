@@ -33,5 +33,10 @@
         "name": "World War 2",
         "level":"hard",
         "data":"world_war_2.json"
+    },
+    {
+        "name": "Planets and Moons",
+        "level":"grid",
+        "data":"planets_moons.json"
     }
 ]

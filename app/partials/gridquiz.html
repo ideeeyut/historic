@@ -1,0 +1,71 @@
+<!--<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">-->
+<!--<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">-->
+<!--<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">-->
+
+<h2 ng-show="areSorted">Congratulations!</h2>
+
+<div class="left">
+    <table>
+        <tr ng-repeat="item in shuffled">
+            <td><div class="item" historic-draggable>{{item.name}}</div></td>
+        </tr>
+    </table>
+</div>
+
+<div class="right">
+    <table border="1">
+        <tr ng-repeat="item in shuffled">
+            <td>{{$index}}</td><td historic-droppable></td>
+        </tr>
+    </table>
+</div>
+
+<style type="text/css">
+
+    .left{
+        width:120px;
+        float:left;
+    }
+    .left table{
+        background:#E0ECFF;
+    }
+    .left td{
+        background:#eee;
+    }
+    .right{
+        float:right;
+        width:570px;
+    }
+    .right table{
+        background:#E0ECFF;
+        width:100%;
+    }
+    .right td{
+        background:#fafafa;
+        color:#444;
+        text-align:center;
+        padding:2px;
+    }
+    .right td{
+        background:#E0ECFF;
+    }
+    .right td.drop{
+        background:#fafafa;
+        width:100px;
+    }
+    .right td.over{
+        background:#FBEC88;
+    }
+    .item{
+        text-align:center;
+        border:1px solid #499B33;
+        background:#fafafa;
+        color:#444;
+        width:100px;
+    }
+    .assigned{
+        border:1px solid #BC2A4D;
+    }
+
+
+</style>

@@ -1,0 +1,42 @@
+[
+    {
+        "name" : "Mercury"
+        , "url" : "http://en.wikipedia.org/wiki/Mercury_(planet)"
+        , "satellites" : []
+    }
+    , {
+        "name" : "Venus"
+        , "url" : "http://en.wikipedia.org/wiki/Venus"
+        , "satellites" : []
+    }
+    , {
+        "name" : "Earth"
+        , "url" : "http://en.wikipedia.org/wiki/Earth"
+        , "satellites" : ["Moon"]
+    }
+    , {
+        "name" : "Mars"
+        , "url" : "http://en.wikipedia.org/wiki/Mars"
+        , "satellites" : ["Phobos", "Deimos"]
+}
+    , {
+        "name" : "Jupiter"
+        , "url" : "http://en.wikipedia.org/wiki/Jupiter"
+        , "satellites" : ["Europa", "Io", "Ganymede", "Callisto"]
+    }
+    , {
+        "name" : "Saturn"
+        , "url" : "http://en.wikipedia.org/wiki/Saturn"
+        , "satellites" : ["Titan", "Enceladus", "Rhea"]
+    }
+    , {
+        "name" : "Uranus"
+        , "url" : "http://en.wikipedia.org/wiki/Uranus"
+        , "satellites" : ["Miranda", "Ariel", "Umbriel", "Titania", "Oberon"]
+    }
+    , {
+        "name" : "Neptune"
+        , "url" : "http://en.wikipedia.org/wiki/Neptune"
+        , "satellites" : ["Triton", "Nereid", "Proteus", "Naiad", "Galatea"]
+    }
+]

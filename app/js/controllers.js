@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-    .controller('SimpleListCtrl', ['$scope', '$filter', '$routeParams', '$http', function($scope, $filter, $routeParams, $http) {
+    .controller('ListQuizCtrl', ['$scope', '$filter', '$routeParams', '$http', function($scope, $filter, $routeParams, $http) {
 
         $scope.category = $routeParams.category;
         $scope.areSorted = false;
@@ -40,14 +40,58 @@ angular.module('myApp.controllers', [])
             console.log('Rating selected = ' + rating);
         }
     }])
-    .controller('HomeCtrl', ['$scope', '$filter', function($scope, $filter) {
+    .controller('GridQuizCtrl', ['$scope', '$filter', '$routeParams', '$http', function($scope, $filter, $routeParams, $http) {
+
+        $scope.category = $routeParams.category;
+        $scope.areSorted = false;
+
+        $http.get('data/' + $scope.category)
+            .success(function(data) {
+                $scope.sorted = data;
+                $scope.shuffled = $filter('shuffle')($scope.sorted);
+            })
+            .error(function(data, status) {
+                console.log(data);
+                console.log(status);
+            });
+
+        $scope.sortableOptions = {
+            stop: function(e, ui) {
+
+                for(var i = 0; i < $scope.sorted.length; i++) {
+                    if($scope.sorted[i].name != $scope.shuffled[i].name) {
+                        $scope.areSorted = false;
+
+                        return;
+                    }
+                }
+
+                $scope.areSorted = true;
+                $scope.$apply();
+
+            }
+        };
+
+        $scope.rating = 5;
+        $scope.saveRatingToServer = function(rating) {
+            console.log('Rating selected = ' + rating);
+        }
+    }])
+    .controller('HomeCtrl', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
+        $http.get('data/quotes.json')
+            .success(function(data) {
+                $scope.quote = $filter('random')(data);
+            })
+            .error(function(data, status) {
+
+            });
     }])
     .controller('IndexCtrl', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
         $scope.displayAlert = false;
         $http.get('data/categories.json')
             .success(function(data) {
                 $scope.categories = data;
-                $scope.random = data[Math.floor(Math.random()*data.length)];
+                $scope.random = $filter('random')(data);
             })
             .error(function(data, status) {
                 console.log(data);

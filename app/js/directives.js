@@ -9,6 +9,48 @@ angular.module('myApp.directives', [])
           elm.text(version);
         };
     }])
+    .directive('historicDraggable', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, elm, attrs) {
+                var options = scope.$eval(attrs.historicDraggable); //allow options to be passed in
+//                elm.draggable(options);
+
+                elm.draggable({
+                       revert:'invalid',
+                        appendTo:'parent'
+                    });
+            }
+        };
+    })
+    .directive('historicDroppable', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, elm, attrs) {
+                var options = scope.$eval(attrs.historicDraggable); //allow options to be passed in
+//                elm.droppable(options);
+                elm.droppable({
+                    activate: function(event, ui) {
+                        console.log('activating');
+                    },
+                    deactivate: function(event, ui) {
+                        console.log('deactivating');
+                    },
+                    out: function(event, ui) {
+                        console.log('leaving');
+                    },
+                    over: function(event, ui) {
+                        console.log('over');
+                    },
+                    drop: function(event, ui) {
+                        var c = $(ui.draggable[0]);
+                        c.attr('style', '');
+                        $(this).append(c);
+                    }
+                })
+            }
+        };
+    })
     .directive('historicRating', function() {
         return {
             restrict: 'A',
@@ -49,3 +91,37 @@ angular.module('myApp.directives', [])
             }
         };
     });
+
+
+//$(function(){
+//    console.log('draggable');
+//
+//    $('.left .item').draggable({
+//        //connectToSortable,
+//        //containment,
+//
+//        revert:false //,
+////                proxy:'clone'
+//    });
+//
+//    $('.right td.drop').droppable({
+//        onDragEnter:function(){
+//            $(this).addClass('over');
+//        },
+//        onDragLeave:function(){
+//            $(this).removeClass('over');
+//        },
+//        onDrop:function(e,source){
+//            $(this).removeClass('over');
+//            if ($(source).hasClass('assigned')){
+//                $(this).append(source);
+//            } else {
+//                var c = $(source).clone().addClass('assigned');
+//                $(this).empty().append(c);
+//                c.draggable({
+//                    revert:true
+//                });
+//            }
+//        }
+//    });
+//})

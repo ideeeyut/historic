@@ -5,6 +5,7 @@
     { "name" : "Mars", "url" : "http://en.wikipedia.org/wiki/Mars" },
     { "name" : "Jupiter", "url" : "http://en.wikipedia.org/wiki/Jupiter" },
     { "name" : "Saturn", "url" : "http://en.wikipedia.org/wiki/Saturn" },
-    { "name" : "Neptune", "url" : "http://en.wikipedia.org/wiki/Neptune" },
-    { "name" : "Uranus", "url" : "http://en.wikipedia.org/wiki/Uranus" }
+    { "name" : "Uranus", "url" : "http://en.wikipedia.org/wiki/Uranus" },
+    { "name" : "Neptune", "url" : "http://en.wikipedia.org/wiki/Neptune" }
 ]
+

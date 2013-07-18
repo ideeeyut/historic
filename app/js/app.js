@@ -8,6 +8,7 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
     $routeProvider.when('/easy', {templateUrl: 'partials/categories.html', controller: 'EasyCategoriesCtrl'});
     $routeProvider.when('/medium', {templateUrl: 'partials/categories.html', controller: 'MediumCategoriesCtrl'});
     $routeProvider.when('/hard', {templateUrl: 'partials/categories.html', controller: 'HardCategoriesCtrl'});
-    $routeProvider.when('/simple/:category', {templateUrl: 'partials/simplelist.html', controller: 'SimpleListCtrl'});
+    $routeProvider.when('/list/:category', {templateUrl: 'partials/listquiz.html', controller: 'ListQuizCtrl'});
+    $routeProvider.when('/grid/:category', {templateUrl: 'partials/gridquiz.html', controller: 'GridQuizCtrl'});
     $routeProvider.otherwise({redirectTo: '/home'});
   }]);

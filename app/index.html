@@ -25,22 +25,28 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Easy <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li ng-repeat="category in categories | filter:{level:'easy'}"><a href="#/simple/{{category.data}}">{{category.name}}</a></li>
+                                <li ng-repeat="category in categories | filter:{level:'easy'}"><a href="#/list/{{category.data}}">{{category.name}}</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medium <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li ng-repeat="category in categories | filter:{level:'medium'}"><a href="#/simple/{{category.data}}">{{category.name}}</a></li>
+                                <li ng-repeat="category in categories | filter:{level:'medium'}"><a href="#/list/{{category.data}}">{{category.name}}</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hard <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li ng-repeat="category in categories | filter:{level:'hard'}"><a href="#/simple/{{category.data}}">{{category.name}}</a></li>
+                                <li ng-repeat="category in categories | filter:{level:'hard'}"><a href="#/list/{{category.data}}">{{category.name}}</a></li>
                             </ul>
                         </li>
-                        <li class="active"><a href="#/simple/{{random.data}}">Random</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grid <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="category in categories | filter:{level:'grid'}"><a href="#/grid/{{category.data}}">{{category.name}}</a></li>
+                            </ul>
+                        </li>
+                        <li class="active"><a href="#/list/{{random.data}}">Random</a></li>
                     </ul>
                     <ul class="nav pull-right">
                         <li><a href="#" ng-click="displayAlert=true">Login</a></li>
@@ -68,42 +74,42 @@
 
     <div ng-view></div>
 
-    <footer class="container-fluid footer-pattern">
-        <div class="container">
-            <div class="row socialmedia">
-                <a href="http://twitter.com/ideeeyut" target="_blank" class="icon_01"><img src="img/spacer.gif" width="37" height="37" alt="Twitter"></a>
-                <a href="https://www.facebook.com/ideeeyut" target="_blank" class="icon_02"><img src="img/spacer.gif" width="37" height="37" alt="Facebook"></a>
-                <a href="http://www.flickr.com/photos/ideeeyut/" target="_blank" class="icon_05"><img src="img/spacer.gif" width="37" height="37" alt="Flickr"></a>
-                <div class="clearfix"></div>
-            </div>
-            <div class="row ornament"></div>
-            <div class="row span10 offset2 linkdata">
-                <div class="span3 pull-left">
-                    <h5 class="blue">Most Favorite Lists</h5>
-                    <ul class="unstyled">
+    <!--<footer class="container-fluid footer-pattern">-->
+        <!--<div class="container">-->
+            <!--<div class="row socialmedia">-->
+                <!--<a href="http://twitter.com/ideeeyut" target="_blank" class="icon_01"><img src="img/spacer.gif" width="37" height="37" alt="Twitter"></a>-->
+                <!--<a href="https://www.facebook.com/ideeeyut" target="_blank" class="icon_02"><img src="img/spacer.gif" width="37" height="37" alt="Facebook"></a>-->
+                <!--<a href="http://www.flickr.com/photos/ideeeyut/" target="_blank" class="icon_05"><img src="img/spacer.gif" width="37" height="37" alt="Flickr"></a>-->
+                <!--<div class="clearfix"></div>-->
+            <!--</div>-->
+            <!--<div class="row ornament"></div>-->
+            <!--<div class="row span10 offset2 linkdata">-->
+                <!--<div class="span3 pull-left">-->
+                    <!--<h5 class="blue">Most Favorite Lists</h5>-->
+                    <!--<ul class="unstyled">-->
 
-                    </ul>
-                </div>
-                <div class="span3 pull-left linkdata">
-                    <h5 class="blue">Top Players</h5>
-                    <ul class="unstyled">
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="span3 pull-left linkdata">-->
+                    <!--<h5 class="blue">Top Players</h5>-->
+                    <!--<ul class="unstyled">-->
 
 
-                    </ul>
-                </div>
-                <div class="span3 pull-left linkdata">
-                    <h5 class="blue">Histor!c</h5>
-                    <ul class="unstyled">
-                        <li><a href="/pages/about/">About Histor!c</a></li>
-                        <li><a href="/pages/donate/">Donate</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span12 copyright">Copyright stuff goes here?</div>
-            </div>
-        </div>
-    </footer>
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="span3 pull-left linkdata">-->
+                    <!--<h5 class="blue">Histor!c</h5>-->
+                    <!--<ul class="unstyled">-->
+                        <!--<li><a href="/pages/about/">About Histor!c</a></li>-->
+                        <!--<li><a href="/pages/donate/">Donate</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+                <!--<div class="span12 copyright">Copyright stuff goes here?</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</footer>-->
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   -->
@@ -119,5 +125,6 @@
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/directives.js"></script>
+    <!--<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>-->
 </body>
 </html>
