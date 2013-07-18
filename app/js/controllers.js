@@ -55,26 +55,12 @@ angular.module('myApp.controllers', [])
                 console.log(status);
             });
 
-        $scope.sortableOptions = {
-            stop: function(e, ui) {
-
-                for(var i = 0; i < $scope.sorted.length; i++) {
-                    if($scope.sorted[i].name != $scope.shuffled[i].name) {
-                        $scope.areSorted = false;
-
-                        return;
-                    }
-                }
-
-                $scope.areSorted = true;
-                $scope.$apply();
-
-            }
-        };
-
-        $scope.rating = 5;
-        $scope.saveRatingToServer = function(rating) {
-            console.log('Rating selected = ' + rating);
+        $scope.onDrop = function(elm) {
+            console.log('onDrop');
+            console.log(elm);
+//            var c = $(ui.draggable[0]);
+//            c.attr('style', '');
+//            $(this).append(c);
         }
     }])
     .controller('HomeCtrl', ['$scope', '$filter', '$http', function($scope, $filter, $http) {

@@ -26,28 +26,46 @@ angular.module('myApp.directives', [])
     .directive('historicDroppable', function() {
         return {
             restrict: 'A',
+            scope: {
+                onDragEnter: '&',
+                onDragLeave: '&',
+                onDrop: '&'
+            },
             link: function(scope, elm, attrs) {
                 var options = scope.$eval(attrs.historicDraggable); //allow options to be passed in
-//                elm.droppable(options);
-                elm.droppable({
-                    activate: function(event, ui) {
-                        console.log('activating');
-                    },
-                    deactivate: function(event, ui) {
-                        console.log('deactivating');
-                    },
-                    out: function(event, ui) {
-                        console.log('leaving');
-                    },
-                    over: function(event, ui) {
-                        console.log('over');
-                    },
-                    drop: function(event, ui) {
-                        var c = $(ui.draggable[0]);
-                        c.attr('style', '');
-                        $(this).append(c);
-                    }
-                })
+                if(options == undefined) {
+                    options = {};
+                }
+                options.over = function(event, ui) {
+                    scope.onDragEnter();
+                };
+                options.out = function(event, ui) {
+                    scope.onDragLeave();
+                };
+                options.drop = function(event, ui) {
+                    console.log([event, ui]);
+                    scope.onDrop();
+                };
+                elm.droppable(options);
+//                elm.droppable({
+//                    activate: function(event, ui) {
+//                        console.log('activating');
+//                    },
+//                    deactivate: function(event, ui) {
+//                        console.log('deactivating');
+//                    },
+//                    out: function(event, ui) {
+//                        console.log('leaving');
+//                    },
+//                    over: function(event, ui) {
+//                        console.log('over');
+//                    },
+//                    drop: function(event, ui) {
+//                        var c = $(ui.draggable[0]);
+//                        c.attr('style', '');
+//                        $(this).append(c);
+//                    }
+//                })
             }
         };
     })
