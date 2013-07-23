@@ -12,14 +12,28 @@ angular.module('myApp.directives', [])
     .directive('historicDraggable', function() {
         return {
             restrict: 'A',
-            link: function(scope, elm, attrs) {
+            require: 'ngModel',
+            link: function(scope, elm, attrs, ngModel) {
                 var options = scope.$eval(attrs.historicDraggable); //allow options to be passed in
-//                elm.draggable(options);
+                if(options == undefined) {
+                    options = {};
+                }
+                options.revert = 'invalid';
 
-                elm.draggable({
-                       revert:'invalid',
-                        appendTo:'parent'
-                    });
+                options.start = function(event, ui) {
+                    if(ngModel){
+                        console.log('setting');
+                        elm.data('ui-draggable-item', ngModel.$modelValue);
+                    }
+                };
+
+                elm.draggable(options);
+
+
+//                elm.draggable({
+//                       revert:'invalid'
+////                        , appendTo:'parent'
+//                    });
             }
         };
     })
@@ -43,8 +57,10 @@ angular.module('myApp.directives', [])
                     scope.onDragLeave();
                 };
                 options.drop = function(event, ui) {
-                    console.log([event, ui]);
-                    scope.onDrop();
+                    var data = ui.draggable.data('ui-draggable-item');
+                    console.log(data);
+
+                    scope.onDrop(data);
                 };
                 elm.droppable(options);
 //                elm.droppable({

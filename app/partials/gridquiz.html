@@ -6,16 +6,16 @@
 
 <div class="left">
     <table>
-        <tr ng-repeat="item in shuffled">
-            <td><div class="item" historic-draggable>{{item.name}}</div></td>
+        <tr ng-repeat="item in shuffled" >
+            <td><div class="item" historic-draggable ng-model="item">{{item.name}}</div></td>
         </tr>
     </table>
 </div>
 
 <div class="right">
     <table border="1">
-        <tr ng-repeat="item in shuffled">
-            <td>{{$index}}</td><td historic-droppable on-drop="onDrop(item)"></td>
+        <tr ng-repeat="item in sorted">
+            <td historic-droppable on-drop="onDrop()" ng-model="item">&nbsp;</td>
         </tr>
     </table>
 </div>

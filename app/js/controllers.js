@@ -58,6 +58,7 @@ angular.module('myApp.controllers', [])
         $scope.onDrop = function(elm) {
             console.log('onDrop');
             console.log(elm);
+
 //            var c = $(ui.draggable[0]);
 //            c.attr('style', '');
 //            $(this).append(c);
