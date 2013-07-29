@@ -49,19 +49,31 @@ angular.module('myApp.controllers', [])
             .success(function(data) {
                 $scope.sorted = data;
                 $scope.shuffled = $filter('shuffle')($scope.sorted);
+                $scope.results = [{},{},{},{},data[3],{},{},{}]
+
+                console.log($scope.results);
             })
             .error(function(data, status) {
                 console.log(data);
                 console.log(status);
             });
 
-        $scope.onDrop = function(elm) {
+        $scope.onDrop = function(item, index) {
             console.log('onDrop');
-            console.log(elm);
+            console.log(item);
+            console.log(index);
 
-//            var c = $(ui.draggable[0]);
-//            c.attr('style', '');
-//            $(this).append(c);
+            for(var i = 0; i < $scope.shuffled; i++) {
+                if($scope.shuffled[i].name == item.name) {
+                    $scope.shuffled.splice(i, 1);
+                    break;
+                }
+            }
+
+            $scope.results.splice(index, 1, item);
+
+            console.log($scope.results);
+            $scope.$apply();
         }
     }])
     .controller('HomeCtrl', ['$scope', '$filter', '$http', function($scope, $filter, $http) {

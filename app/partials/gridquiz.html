@@ -12,13 +12,24 @@
     </table>
 </div>
 
+<!--<div class="right">-->
+    <!--<table>-->
+        <!--<tr ng-repeat="item in results" >-->
+            <!--<td><div class="item" historic-draggable ng-model="item">{{item.name}}&nbsp;</div></td>-->
+        <!--</tr>-->
+    <!--</table>-->
+<!--</div>-->
+
 <div class="right">
     <table border="1">
-        <tr ng-repeat="item in sorted">
-            <td historic-droppable on-drop="onDrop()" ng-model="item">&nbsp;</td>
+        <tr ng-repeat="item in results">
+            <td historic-droppable on-drop="onDrop(droppedItem, $index)">{{item.name}}&nbsp;</td>
         </tr>
     </table>
 </div>
+
+
+
 
 <style type="text/css">
 

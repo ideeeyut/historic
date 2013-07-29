@@ -27,6 +27,9 @@ angular.module('myApp.directives', [])
                     }
                 };
 
+                options.stop = function(event, ui) {
+                    console.log('draggable stopped');
+                };
                 elm.draggable(options);
 
 
@@ -56,32 +59,13 @@ angular.module('myApp.directives', [])
                 options.out = function(event, ui) {
                     scope.onDragLeave();
                 };
-                options.drop = function(event, ui) {
-                    var data = ui.draggable.data('ui-draggable-item');
-                    console.log(data);
+                options.drop = function(event, element, attrs) {
+                    var data = element.draggable.data('ui-draggable-item');
 
-                    scope.onDrop(data);
+                    scope.onDrop({droppedItem: data, index: 1});
                 };
+
                 elm.droppable(options);
-//                elm.droppable({
-//                    activate: function(event, ui) {
-//                        console.log('activating');
-//                    },
-//                    deactivate: function(event, ui) {
-//                        console.log('deactivating');
-//                    },
-//                    out: function(event, ui) {
-//                        console.log('leaving');
-//                    },
-//                    over: function(event, ui) {
-//                        console.log('over');
-//                    },
-//                    drop: function(event, ui) {
-//                        var c = $(ui.draggable[0]);
-//                        c.attr('style', '');
-//                        $(this).append(c);
-//                    }
-//                })
             }
         };
     })
